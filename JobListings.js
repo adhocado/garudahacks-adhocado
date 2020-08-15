@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 30,
         paddingTop: 50,
+        fontFamily: 'OpenSans_400Regular',
     },
     mainText: {
         fontSize: 20,
