@@ -9,6 +9,7 @@ import BossProfileScreen from './BossProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
 import EmployerJobScreen from './EmployerJobScreen';
 import EmployerProfileScreen from './EmployerProfileScreen';
+import { useFonts, OpenSans_400Regular, OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 
 function HomeScreen({ navigation }) {
   return (
@@ -37,7 +38,7 @@ function EmployeeScreen() {
             iconName = 'ios-search'
           } else if (route.name === 'Jobs') {
             iconName = 'ios-briefcase'
-          } else if (route.name === 'BossProfile') {
+          } else if (route.name === 'Profile') {
             iconName = 'ios-person'
           }
           // You can return any component that you like here!
@@ -45,13 +46,13 @@ function EmployeeScreen() {
         },
       })}
       tabBarOptions={{
-        activeTintColor: '#E7698A',
+        activeTintColor: '#2DD2B8',
         inactiveTintColor: 'gray',
       }}
     >
       <EmployeeTabs.Screen name="Calendar" component={CalendarScreen} />
       <EmployeeTabs.Screen name="Jobs" component={JobsScreen} />
-      <EmployeeTabs.Screen name="BossProfile" component={BossProfileScreen} />
+      <EmployeeTabs.Screen name="Profile" component={BossProfileScreen} />
     </EmployeeTabs.Navigator>
   );
 }
@@ -86,9 +87,18 @@ function EmployerScreen() {
 const Stack = createStackNavigator();
 
 function App() {
+  let [fontsLoaded] = useFonts({
+    OpenSans_400Regular,
+    OpenSans_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    
+  }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Employee">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Employer" component={EmployerScreen} />
         <Stack.Screen name="Employee" component={EmployeeScreen} />
