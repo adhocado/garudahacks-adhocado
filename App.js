@@ -33,7 +33,7 @@ function EmployeeScreen() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === 'Calendar') {
-            iconName = 'ios-search'
+            iconName = 'ios-calendar'
           } else if (route.name === 'Jobs') {
             iconName = 'ios-briefcase'
           } else if (route.name === 'Profile') {
