@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, Alert, TouchableOpacity, ScrollView } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import JobCard from './JobCard';
 const kopinalarImg = require('./images/kopinalar.jpeg');
 const bigbananasImg = require('./images/bigbananas.jpeg');
+const gojekImg = require('./images/gojek.png');
 
 const jobs = [
     {
@@ -24,19 +26,33 @@ const jobs = [
         name: 'Gojek',
         pay: 'Rp 10,000',
         address: 'Batam',
-        src: bigbananasImg,
+        src: gojekImg,
     },
 ]
 
 export default function JobsScreen({ navigation }) {
     return (
-        <ScrollView>
+        <ScrollView style={{ padding: 15 }}>
+            <Text style={styles.mainText}>
+                Jobs
+            </Text>
             {jobs.map((job, index) => (
-                <Card 
-                    title={job.name}
-                    image={job.src}
+                <JobCard
+                    key={index}
+                    imgSrc={job.src}
+                    type={job.type}
+                    name={job.name}
+                    pay={job.pay}
+                    address={job.address}
                 />
             ))}
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    mainText: {
+        fontSize: 20,
+        fontFamily: 'OpenSans_400Regular',
+    }
+});

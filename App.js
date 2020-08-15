@@ -7,6 +7,7 @@ import JobsScreen from './JobsScreen';
 import CalendarScreen from './CalendarScreen';
 import BossProfileScreen from './BossProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
+import { useFonts, OpenSans_400Regular, OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 
 function HomeScreen({ navigation }) {
   return (
@@ -66,6 +67,15 @@ function EmployerScreen() {
 const Stack = createStackNavigator();
 
 function App() {
+  let [fontsLoaded] = useFonts({
+    OpenSans_400Regular,
+    OpenSans_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
