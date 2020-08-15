@@ -78,7 +78,7 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Employee">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Employer" component={EmployerScreen} />
         <Stack.Screen name="Employee" component={EmployeeScreen} />

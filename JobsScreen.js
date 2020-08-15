@@ -1,58 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
-import JobCard from './JobCard';
-const kopinalarImg = require('./images/kopinalar.jpeg');
-const bigbananasImg = require('./images/bigbananas.jpeg');
-const gojekImg = require('./images/gojek.png');
+import { createStackNavigator } from '@react-navigation/stack';
+import JobPage from './JobPage';
+import JobListings from './JobListings';
 
-const jobs = [
-    {
-        type: 'Service staff',
-        name: 'Kopi Nalar',
-        pay: 'Rp 100,000',
-        address: 'Bali',
-        src: kopinalarImg,
-    },
-    {
-        type: 'Delivery',
-        name: 'Big Bananas Daya',
-        pay: 'Rp 85,000',
-        address: 'Jakarta',
-        src: bigbananasImg,
-    },
-    {
-        type: 'NOC Intern',
-        name: 'Gojek',
-        pay: 'Rp 10,000',
-        address: 'Batam',
-        src: gojekImg,
-    },
-]
+const Stack = createStackNavigator();
 
 export default function JobsScreen({ navigation }) {
     return (
-        <ScrollView style={{ padding: 15 }}>
-            <Text style={styles.mainText}>
-                Jobs
-            </Text>
-            {jobs.map((job, index) => (
-                <JobCard
-                    key={index}
-                    imgSrc={job.src}
-                    type={job.type}
-                    name={job.name}
-                    pay={job.pay}
-                    address={job.address}
-                />
-            ))}
-        </ScrollView>
+        <Stack.Navigator initialRouteName="JobListings">
+            <Stack.Screen name="JobListings" component={JobListings} />
+            <Stack.Screen name="JobPage" component={JobPage} />
+        </Stack.Navigator>
     )
 }
-
-const styles = StyleSheet.create({
-    mainText: {
-        fontSize: 20,
-        fontFamily: 'OpenSans_400Regular',
-    }
-});

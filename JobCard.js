@@ -2,11 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 export default function JobCard(props) {
+    const navigation = props.navigation;
 
     return (
         <View style={styles.container}>
-
-            <Image style={styles.image} source={props.imgSrc} />
+            <TouchableOpacity
+                onPress={() => {navigation.navigate('JobPage')}}
+            >
+                <Image style={styles.image} source={props.imgSrc} />
+            </TouchableOpacity>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>{props.type}</Text>
                 <Text style={styles.title}>{props.name}</Text>
