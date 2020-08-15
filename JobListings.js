@@ -11,15 +11,17 @@ const jobs = [
         type: 'Service staff',
         name: 'Kopi Nalar',
         pay: 'Rp 100,000',
-        address: 'Bali',
+        address: 'Jl. Prof. Joko Sutono SH No.7 Senopati, Jakarta Indonesia',
         src: kopinalarImg,
+        description: 'Clean tables, wash dishes, wait tables, pack up and close the shop. Applicants are expected to know how to be professional and cheerful towards customers and staff.',
     },
     {
         type: 'Delivery',
         name: 'Big Bananas Daya',
         pay: 'Rp 85,000',
-        address: 'Jakarta',
+        address: 'Bali',
         src: bigbananasImg,
+        description: '',
     },
     {
         type: 'NOC Intern',
@@ -27,6 +29,7 @@ const jobs = [
         pay: 'Rp 10,000',
         address: 'Batam',
         src: gojekImg,
+        description: '',
     },
 ]
 
@@ -40,11 +43,7 @@ export default function JobListings(props) {
                 <JobCard
                     navigation = {props.navigation}
                     key={index}
-                    imgSrc={job.src}
-                    type={job.type}
-                    name={job.name}
-                    pay={job.pay}
-                    address={job.address}
+                    job={job}
                 />
             ))}
         </ScrollView>

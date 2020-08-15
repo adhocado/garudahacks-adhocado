@@ -7,15 +7,17 @@ export default function JobCard(props) {
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => {navigation.navigate('JobPage')}}
+                onPress={() => {navigation.navigate('JobPage', {
+                    job: props.job
+                })}}
             >
-                <Image style={styles.image} source={props.imgSrc} />
+                <Image style={styles.image} source={props.job.src} />
             </TouchableOpacity>
             <View style={styles.textContainer}>
-                <Text style={styles.text}>{props.type}</Text>
-                <Text style={styles.title}>{props.name}</Text>
-                <Text style={styles.text}>{props.pay}</Text>
-                <Text style={styles.text}>{props.address}</Text>
+                <Text style={styles.text}>{props.job.type}</Text>
+                <Text style={styles.title}>{props.job.name}</Text>
+                <Text style={styles.text}>{props.job.pay}</Text>
+                <Text style={styles.text}>{props.job.address}</Text>
             </View>
         </View>
     )

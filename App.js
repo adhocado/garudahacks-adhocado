@@ -36,7 +36,7 @@ function EmployeeScreen() {
             iconName = 'ios-search'
           } else if (route.name === 'Jobs') {
             iconName = 'ios-briefcase'
-          } else if (route.name === 'BossProfile') {
+          } else if (route.name === 'Profile') {
             iconName = 'ios-person'
           }
           // You can return any component that you like here!
@@ -44,13 +44,13 @@ function EmployeeScreen() {
         },
       })}
       tabBarOptions={{
-        activeTintColor: '#E7698A',
+        activeTintColor: '#2DD2B8',
         inactiveTintColor: 'gray',
       }}
     >
       <EmployeeTabs.Screen name="Calendar" component={CalendarScreen} />
       <EmployeeTabs.Screen name="Jobs" component={JobsScreen} />
-      <EmployeeTabs.Screen name="BossProfile" component={BossProfileScreen} />
+      <EmployeeTabs.Screen name="Profile" component={BossProfileScreen} />
     </EmployeeTabs.Navigator>
   );
 }
