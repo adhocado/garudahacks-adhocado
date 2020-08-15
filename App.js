@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
+import { StyleSheet, Button, View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -98,13 +98,30 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Employer" component={EmployerScreen} />
-        <Stack.Screen name="Employee" component={EmployeeScreen} />
+      <Stack.Navigator initialRouteName="Home" screenOptions={allScreenOptions}>
+        <Stack.Screen name="Home" component={HomeScreen} options={commonHeaderOptions}/>
+        <Stack.Screen name="Employer" component={EmployerScreen} options={commonHeaderOptions}/>
+        <Stack.Screen name="Employee" component={EmployeeScreen} options={commonHeaderOptions}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
+}
+
+const allScreenOptions = {
+  headerStyle: {
+    backgroundColor: '#fff',
+  },
+  headerTintColor: '#fff',
+  headerBackground: () => (
+    <Image
+      style={{ width: 170, resizeMode: 'contain', alignSelf: 'center', top: 35, }}
+      source={require('./images/logo.png')}
+    />
+  ),
+}
+
+const commonHeaderOptions = {
+  title: "",
 }
 
 export default App;
