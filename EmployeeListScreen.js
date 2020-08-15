@@ -5,13 +5,6 @@ import UserAvatar from 'react-native-user-avatar';
 const bigbananasImg = require('./images/bigbananas.jpeg');
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
-const users = [
-    {
-        name: 'Nur',
-        avatar: require('./images/annisa.jpg')
-    },
-]
-
 const styles = StyleSheet.create({
     titleText: {
         fontWeight: '600',
