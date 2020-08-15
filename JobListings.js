@@ -36,9 +36,16 @@ const jobs = [
 export default function JobListings(props) {
     return (
         <ScrollView style={{ padding: 15 }}>
-            <Text style={styles.mainText}>
+            <Text style={styles.titleText}>
                 Jobs
             </Text>
+            <Text style={styles.mainText}>
+                Saturday, 20 August
+            </Text>
+            <Text style={styles.mainText}>
+                08:00 - 18:00
+            </Text>
+            <View style={styles.padding}></View>
             {jobs.map((job, index) => (
                 <JobCard
                     navigation = {props.navigation}
@@ -51,8 +58,16 @@ export default function JobListings(props) {
 }
 
 const styles = StyleSheet.create({
+    titleText: {
+        fontWeight: '600',
+        fontSize: 30,
+        paddingTop: 50,
+    },
     mainText: {
         fontSize: 20,
         fontFamily: 'OpenSans_400Regular',
+    },
+    padding: {
+        paddingTop: 20
     }
 });
