@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import { StyleSheet, Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -7,6 +7,8 @@ import JobsScreen from './JobsScreen';
 import CalendarScreen from './CalendarScreen';
 import BossProfileScreen from './BossProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
+import EmployerJobScreen from './EmployerJobScreen';
+import EmployerProfileScreen from './EmployerProfileScreen';
 
 function HomeScreen({ navigation }) {
   return (
@@ -57,9 +59,27 @@ function EmployeeScreen() {
 const EmployerTabs = createBottomTabNavigator();
 function EmployerScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Ep Screen</Text>
-    </View>
+    <EmployerTabs.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === 'Jobs') {
+            iconName = 'ios-briefcase'
+          } else if (route.name === 'Profile') {
+            iconName = 'ios-person'
+          }
+          // You can return any component that you like here!
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: '#E7698A',
+        inactiveTintColor: 'gray',
+      }}
+    >
+      <EmployerTabs.Screen name="Jobs" component={EmployerJobScreen} />
+      <EmployerTabs.Screen name="Profile" component={EmployerProfileScreen} />
+    </EmployerTabs.Navigator>
   );
 }
 
